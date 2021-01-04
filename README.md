@@ -23,12 +23,12 @@
 | Colum           | Type       | Options                        |
 |-----------------|------------|--------------------------------|
 | name            | string     | null: false                    |
-| category        | string     | null: false                    |
+| category_id     | integer    | null: false                    |
 | condition_id    | integer    | null: false                    |
-| place_id        | integer    | null: false                    |
+| prefecture_id   | integer    | null: false                    |
 | price           | integer    | null: false                    |
 | comment         | text       | null: false                    |
-| delivery_fee-id | integer    | null: false                    |
+| delivery_fee_id | integer    | null: false                    |
 | schedule_id     | integer    | null: false                    |
 | user            | references | null: false, foreign_key: true |
 
@@ -55,7 +55,7 @@
 
 | Colum           | Type       | Options                        |
 |-----------------|------------|--------------------------------|
-| cord_id         | integer    | null: false                    |
+| cord_id         | string     | null: false                    |
 | prefecture_id   | integer    | null: false                    |
 | municipality    | string     | null: false                    |
 | add             | string     | null: false,                   |
