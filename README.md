@@ -55,7 +55,7 @@
 
 | Colum           | Type       | Options                        |
 |-----------------|------------|--------------------------------|
-| cord_id         | string     | null: false                    |
+| postalcode_id   | string     | null: false                    |
 | prefecture_id   | integer    | null: false                    |
 | municipality    | string     | null: false                    |
 | add             | string     | null: false,                   |
