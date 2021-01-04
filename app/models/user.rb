@@ -8,7 +8,7 @@ class User < ApplicationRecord
     validates :nickname
     validates :email
     validates :password, format:{with: /(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{6,}/}
-    with_options format: {with: /\A[ぁ-んァ-ン一-龥]/, message: "Full-width characters"} do
+    with_options format: {with: /\A[ぁ-んァ-ヶ一-龥々]+\z/, message: "Full-width characters"} do
       validates :last_name
       validates :first_name
     end
