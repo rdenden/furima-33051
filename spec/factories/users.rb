@@ -3,7 +3,7 @@ FactoryBot.define do
     
     nickname {Faker::Name.last_name}
     email {Faker::Internet.free_email}
-    password = Faker::Internet.password(min_length: 6)
+    password = "a1" + Faker::Internet.password(min_length: 6)
     password {password}
     password_confirmation {password}
     birth_date { Faker::Date.backward }
