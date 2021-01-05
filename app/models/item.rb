@@ -1,13 +1,16 @@
 class Item < ApplicationRecord
-  with_options presence: true do
-    validates :name                
-    validates :category_id                         
-    validates :condition_id                      
-    validates :prefecture_id                     
-    validates :price                              
-    validates :comment                            
-    validates :delivery_fee_id                    
-    validates :schedule_id                       
+  with_options presence: true do 
+    with_options numericality: { other_than: 0 }  do
+      validates :category_id                         
+      validates :condition_id                      
+      validates :prefecture_id                     
+      validates :delivery_fee_id  
+      validates :schedule_id    
+    end
+    
+    validates :name
+    validates :price, numericality: {greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, message: "300~9,999,999までの金額を入力してください"},  format:{with: /[0-9]/,message:"半角数字を入力してください"}                        
+    validates :comment                                                
     validates :user, foreign_key: true 
   end
   belongs_to :user
