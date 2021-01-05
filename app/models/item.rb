@@ -11,4 +11,5 @@ class Item < ApplicationRecord
     validates :user, foreign_key: true 
   end
   belongs_to :user
+  has_one_attached :image
 end
