@@ -12,4 +12,11 @@ class Item < ApplicationRecord
   end
   belongs_to :user
   has_one_attached :image
+
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to :category
+  belongs_to :Condition
+  belongs_to :Delivery_fee
+  belongs_to :Prefecture
+  belongs_to :Schedule
 end
