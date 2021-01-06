@@ -5,21 +5,22 @@ class Item < ApplicationRecord
       validates :condition_id                      
       validates :prefecture_id                     
       validates :delivery_fee_id  
-      validates :schedule_id    
+      validates :schedule_id
+         
     end
-    
+    validates :image 
     validates :name
-    validates :price, numericality: {greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, message: "300~9,999,999までの金額を入力してください"},  format:{with: /[0-9]/,message:"半角数字を入力してください"}                        
+    validates :price, numericality: {greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, message: "is out of setting range"},  format:{with: /[0-9]/,message:"is invalid. Input half-width characters."}                        
     validates :comment                                                
-    validates :user, foreign_key: true 
+    validates :user
   end
   belongs_to :user
   has_one_attached :image
 
   extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to :category
-  belongs_to :Condition
-  belongs_to :Delivery_fee
-  belongs_to :Prefecture
-  belongs_to :Schedule
+  belongs_to_active_hash :category
+  belongs_to_active_hash :Condition
+  belongs_to_active_hash :Delivery_fee
+  belongs_to_active_hash :Prefecture
+  belongs_to_active_hash :Schedule
 end
