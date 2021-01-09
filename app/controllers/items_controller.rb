@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit]
   before_action :move_to_index, only: :edit
-  before_action :set_tweet, only: [:edit, :show, :update]
+  before_action :set_item, only: [:edit, :show, :update]
   def new
     @item = Item.new
   end
@@ -44,7 +44,7 @@ class ItemsController < ApplicationController
     redirect_to action: :index unless item.user.id == current_user.id
   end
 
-  def set_tweet
+  def set_item
     @item = Item.find(params[:id])
   end
 end
