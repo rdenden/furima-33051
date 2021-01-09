@@ -15,7 +15,7 @@ class ItemsController < ApplicationController
   end
 
   def index
-    @items = Item.all.order("created_at DESC")
+    @items = Item.all.order('created_at DESC')
   end
 
   def show
@@ -25,13 +25,13 @@ class ItemsController < ApplicationController
   def edit
     @item = Item.find(params[:id])
   end
-  
+
   def update
     @item = Item.find(params[:id])
-     if @item.update(item_params)
-        redirect_to root_path
-     else render :edit
-     end
+    if @item.update(item_params)
+      redirect_to root_path
+    else render :edit
+    end
   end
 
   private
@@ -43,8 +43,6 @@ class ItemsController < ApplicationController
 
   def move_to_index
     item = Item.find(params[:id])
-    unless item.user.id == current_user.id
-      redirect_to action: :index
-    end
+    redirect_to action: :index unless item.user.id == current_user.id
   end
 end
