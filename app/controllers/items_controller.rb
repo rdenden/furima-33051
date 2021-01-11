@@ -20,6 +20,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    
   end
 
   def edit
@@ -28,7 +29,8 @@ class ItemsController < ApplicationController
   def update
     if @item.update(item_params)
       redirect_to root_path
-    else render :edit
+    else 
+      render :edit
     end
   end
 
@@ -36,7 +38,8 @@ class ItemsController < ApplicationController
     if current_user.id == @item.user_id
       if @item.destroy
         redirect_to root_path
-      else render :edit
+      else 
+        render :edit
       end
     end
   end
