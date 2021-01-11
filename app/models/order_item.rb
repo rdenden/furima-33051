@@ -1,4 +1,4 @@
-class UserItem
+class OrderItem
   include ActiveModel::Model
   attr_accessor :user, :item, :buy, :postalcode_id, :prefecture_id, :municipality, :add, :building, :tel
   
