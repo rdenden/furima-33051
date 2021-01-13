@@ -15,5 +15,6 @@ FactoryBot.define do
     last_name { person.last.kanji }
     first_name_kana { person.first.katakana }
     last_name_kana { person.last.katakana }
+   
   end
 end
