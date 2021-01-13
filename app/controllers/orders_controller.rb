@@ -1,9 +1,10 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!, only: :index
+  before_action :set_item, only: :index
 
   def index
     @order_item = OrderItem.new
-    @item = Item.find(params[:item_id])
+    
     redirect_to root_path if @item.user_id == current_user.id || @item.order
   end
 
@@ -17,7 +18,7 @@ class OrdersController < ApplicationController
       @order_item.save
       redirect_to root_path
     else
-      @item = Item.find(params[:item_id])
+      set_item
       render action: :index
     end
   end
@@ -38,4 +39,9 @@ class OrdersController < ApplicationController
       currency: 'jpy'
     )
   end
+
+  def set_item
+    @item = Item.find(params[:item_id])
+  end
+    
 end
