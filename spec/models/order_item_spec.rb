@@ -73,7 +73,7 @@ RSpec.describe OrderItem, type: :model do
           expect(@order_item.errors.full_messages).to include('Postalcode is invalid. Include hyphen(-)')
         end
         it 'prefecture_idが0では登録できないこと' do
-          @order_item.prefecture_id = '0'
+          @order_item.prefecture_id = 0
           @order_item.valid?
           expect(@order_item.errors.full_messages).to include('Prefecture must be other than 0')
         end

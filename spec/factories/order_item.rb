@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :order_item do
     postalcode_id { '111-1111' }
-    prefecture_id { '1' }
+    prefecture_id { 1 }
     municipality { '横浜市' }
     add { '1-1' }
     tel { '01234567890' }
