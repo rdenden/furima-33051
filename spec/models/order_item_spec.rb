@@ -3,7 +3,10 @@ require 'rails_helper'
 RSpec.describe OrderItem, type: :model do
   describe '#create' do
     before do
-      @order_item = FactoryBot.build(:order_item)
+      @item = FactoryBot.create(:item)
+      @user = FactoryBot.create(:user)
+      @order_item = FactoryBot.build(:order_item, item_id: @item.id , user_id: @user.id)
+      sleep 0.2
     end
 
     describe '商品購入' do
@@ -86,81 +89,7 @@ RSpec.describe OrderItem, type: :model do
           expect(@order_item.errors.full_messages).to include('Tel is invalid')
         end
 
-        #         it 'telが空では登録できないこと' do
-        #           @order_item.tel = nil
-        #           @order_item.valid?
-        #           expect(@order_item.errors.full_messages).to include("Tel can't be blank")
-        #         end
-        #         it 'user_idが空では登録できないこと' do
-        #           @item.user = nil
-        #           @item.valid?
-        #           expect(@item.errors.full_messages).to include("User can't be blank", 'User must exist')
-        #         end
-        #         it 'imageが空では登録できないこと' do
-        #           @item.image = nil
-        #           @item.valid?
-        #           expect(@item.errors.full_messages).to include("Image can't be blank")
-        #         end
-        #         it 'priceが300未満では登録できないこと' do
-        #           @item.price = '299'
-        #           @item.valid?
-        #           expect(@item.errors.full_messages).to include('Price is out of setting range')
-        #         end
-        #         it 'priceが9999999超では登録できないこと' do
-        #           @item.price = '10000000'
-        #           @item.valid?
-        #           expect(@item.errors.full_messages).to include('Price is out of setting range')
-        #         end
-        #         it 'category_idが0では登録できないこと' do
-        #           @item.category_id = '0'
-        #           @item.valid?
-        #           expect(@item.errors.full_messages).to include('Category must be other than 0')
-        #         end
-        #         it 'condition_idが0では登録できないこと' do
-        #           @item.condition_id = '0'
-        #           @item.valid?
-        #           expect(@item.errors.full_messages).to include('Condition must be other than 0')
-        #         end
-        #         it 'prefecture_idが0では登録できないこと' do
-        #           @item.prefecture_id = '0'
-        #           @item.valid?
-        #           expect(@item.errors.full_messages).to include('Prefecture must be other than 0')
-        #         end
-        #         it 'delivery_fee_idが0では登録できないこと' do
-        #           @item.delivery_fee_id = '0'
-        #           @item.valid?
-        #           expect(@item.errors.full_messages).to include('Delivery fee must be other than 0')
-        #         end
-        #         it 'schdule_idが0では登録できないこと' do
-        #           @item.schedule_id = '0'
-        #           @item.valid?
-        #           expect(@item.errors.full_messages).to include('Schedule must be other than 0')
-        #         end
-        #         it 'priceが漢字では登録できないこと' do
-        #           @item.price = '阿'
-        #           @item.valid?
-        #           expect(@item.errors.full_messages).to include('Price is out of setting range')
-        #         end
-        #         it 'priceがひらがなでは登録できないこと' do
-        #           @item.price = 'あ'
-        #           @item.valid?
-        #           expect(@item.errors.full_messages).to include('Price is out of setting range')
-        #         end
-        #         it 'priceがカタカナでは登録できないこと' do
-        #           @item.price = 'ア'
-        #           @item.valid?
-        #           expect(@item.errors.full_messages).to include('Price is out of setting range')
-        #         end
-        #         it 'priceが全角英字では登録できないこと' do
-        #           @item.price = 'ａ'
-        #           @item.valid?
-        #           expect(@item.errors.full_messages).to include('Price is out of setting range')
-        #         end
-        #         it 'priceが半角英字では登録できないこと' do
-        #           @item.price = 'a'
-        #           @item.valid?
-        #           expect(@item.errors.full_messages).to include('Price is out of setting range')
-        #         end
+        
       end
     end
   end
