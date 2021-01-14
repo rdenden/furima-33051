@@ -52,7 +52,7 @@ class ItemsController < ApplicationController
 
   def move_to_index
     item = Item.find(params[:id])
-    redirect_to action: :index unless item.user.id == current_user.id
+    redirect_to action: :index unless (item.user.id == current_user.id)  || item.order == nil
   end
 
   def set_item
